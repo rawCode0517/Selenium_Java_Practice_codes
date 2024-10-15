@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="6" parallel="tests" name="Failed suite [Loan Department]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="TestApplication.Listeners"/>
+  </listeners>
+  <test thread-count="6" parallel="tests" name="Personal Loan(failed)">
+    <parameter name="URL" value="carloan.com"/>
+    <classes>
+      <class name="TestApplication.BasicsDay1">
+        <methods>
+          <include name="AFSuite"/>
+          <include name="demo"/>
+          <include name="lastExecution"/>
+        </methods>
+      </class> <!-- TestApplication.BasicsDay1 -->
+    </classes>
+  </test> <!-- Personal Loan(failed) -->
+  <test thread-count="6" parallel="tests" name="Car Loan(failed)">
+    <classes>
+      <class name="TestApplication.day3">
+        <methods>
+          <include name="beforeEvery"/>
+          <include name="afterclass"/>
+          <include name="afterMethod"/>
+          <include name="beforeClass"/>
+          <include name="webloginX"/>
+          <include name="BfSuite"/>
+        </methods>
+      </class> <!-- TestApplication.day3 -->
+    </classes>
+  </test> <!-- Car Loan(failed) -->
+</suite> <!-- Failed suite [Loan Department] -->

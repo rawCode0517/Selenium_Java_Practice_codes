@@ -1,0 +1,34 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Settings {
+	WebDriver driver;
+	
+	public Settings(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		this.driver = driver;
+	}
+	@FindBy(xpath = "//div[contains(text(),'Turn Features On / Off')]")
+	private WebElement turnFeatureOnOff;
+	@FindBy(xpath = "(//div[contains(text(),'General Settings')])[2]")
+	private WebElement generalSetting;
+	@FindBy(xpath ="//div[contains(text(),'Workflow Settings')]")
+	private WebElement workFlowSetting;
+	@FindBy(xpath = "//a[contains(text(),'Types of Work')]")
+	private WebElement typesOfWork;
+	@FindBy(xpath ="//a[contains(text(),'Leave Types')]")
+	private WebElement leaveTypes;
+	@FindBy(xpath ="//a[contains(text(),'Priority')]")
+	private WebElement findBy;
+	
+	
+	public void clickTypeOfWork() {
+		typesOfWork.click();
+	}
+	
+	
+}

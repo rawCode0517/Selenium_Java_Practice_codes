@@ -1,0 +1,45 @@
+package Selenium;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ChildWindowHandleExample {
+
+	public static void main(String[] args) {
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://the-internet.herokuapp.com");
+		driver.manage().window().maximize();
+		
+	List<WebElement> listOptions =driver.findElements(By.xpath("//*[contains(@id,'content')]//a"));
+	
+	Boolean match = listOptions.stream().anyMatch(anyMatch-> anyMatch.getText().equalsIgnoreCase("Multiple Windows"));
+	
+	
+	System.out.println(match);
+		
+		
+		
+		
+		
+	}
+
+
+	static{
+		System.setProperty("webdriver.chrome.driver","./driver/chromedriver.exe");
+	}	
+
+	
+	
+
+	
+}
+
+
+
+
+

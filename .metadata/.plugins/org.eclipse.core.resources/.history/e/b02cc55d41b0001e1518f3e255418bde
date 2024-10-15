@@ -1,0 +1,27 @@
+package testcasesScript;
+
+import org.testng.annotations.Test;
+
+import com.booking.TestBase;
+
+import pages.Homepage;
+import pages.LoginPage;
+
+public class Tc2 extends TestBase {
+	
+	
+	@Test
+	public void login() {
+		LoginPage lp = new LoginPage(driver);
+		lp.login("anshumanjenamani@gmail.com", "actitime123");
+		
+		Homepage home = new Homepage(driver);
+		home.logout();
+		
+		
+		
+		
+		
+	}
+
+}

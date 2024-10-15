@@ -1,0 +1,19 @@
+package Sync;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class waitProp {
+	WebDriver driver;
+	public waitProp(WebDriver driver) {
+		// TODO Auto-generated constructor stub
+	}
+	public void explicitWait() {
+		Wait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
+	}
+
+}

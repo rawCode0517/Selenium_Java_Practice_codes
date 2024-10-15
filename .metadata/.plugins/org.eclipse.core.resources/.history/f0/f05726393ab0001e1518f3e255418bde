@@ -1,0 +1,22 @@
+package testcasesScript;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import com.booking.TestBase;
+
+public class TC_01  {
+	@Test
+	public void m1() {
+		System.out.println("browser lunched");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://online.actitime.com/xyz6/login.do");//
+		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("anshumanjenamani@gmail.com");
+		
+		
+	}
+	
+
+}

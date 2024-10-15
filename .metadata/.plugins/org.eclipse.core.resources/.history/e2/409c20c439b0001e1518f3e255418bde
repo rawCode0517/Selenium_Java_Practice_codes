@@ -1,0 +1,15 @@
+package testcasesScript;
+
+import org.testng.annotations.Test;
+
+import com.booking.TestBase;
+
+public class TC_01  {
+	@Test
+	public void m1() {
+		System.out.println("browser lunched");
+		
+	}
+	
+
+}

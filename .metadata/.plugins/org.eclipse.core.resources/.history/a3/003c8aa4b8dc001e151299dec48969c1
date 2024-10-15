@@ -1,0 +1,89 @@
+package pages;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import Sync.waitProp;
+
+public class TypeOfWork {
+	WebDriver driver;
+	@FindBy(xpath ="//div[contains(text(),'New Type')]") 
+	private WebElement newTypeBtn;
+	@FindBy(xpath="//input[@placeholder='Enter name']")
+	private WebElement enterNameText;
+	@FindBy(xpath ="(//span[@class='containers-TypesOfWorkItemList-CategorySelector-name--3v-huVaC'])[2]")
+	private WebElement ctaegorySelect;
+	@FindBy(xpath ="//div[@class='ScrollbarsCustom-Content']/button")
+	private WebElement selecTBilableOption;
+	@FindBy(xpath ="//input[@data-for='item_list_modal_tooltip']")
+	private WebElement billAmt;
+	@FindBy(xpath ="//button[@type='submit']")private WebElement saveBtn;
+	@FindBy(xpath="//div//label//input[@type='checkbox']")
+	private List<WebElement> selectRecordCheckBox;
+	@FindBy(xpath="//span[@class='components-TruncatedText-truncatedText--1iVivIkq']//span/span[contains(text(),'')]")
+	private List<WebElement> recordCheck;
+	
+	waitProp wp = new waitProp();
+	public TypeOfWork(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		this.driver=driver;
+	}
+	
+	public void clickNewTypeOfWork() {
+		wp.fulentWait(driver, newTypeBtn, 10, 2);
+		newTypeBtn.click();
+	}
+	
+	public void enterNameText(String name) {
+		
+		enterNameText.sendKeys(name);
+		System.out.println("Entered name as "+name);
+	}
+	
+	public void billableCategoryClick() {
+		ctaegorySelect.click();
+		System.out.println("Clicked on select category");
+	}
+
+	public void selectSpecificBillCategory() {
+		wp.fulentWait(driver, selecTBilableOption, 10, 2);
+	selecTBilableOption.click();
+				
+	}
+	
+	public void enterBilAmt(String amt) {
+		wp.fulentWait(driver, billAmt, 10, 2);
+		billAmt.sendKeys(amt);
+		System.out.println("Amt entered as "+amt);
+	}
+	public void saveClick() {
+		wp.explicitWait(saveBtn, driver);
+		saveBtn.click();
+		System.out.println("Clicked on Save button");
+	}
+	
+	public void recordCheck(String recordName) throws InterruptedException {
+	Thread.sleep(3000);
+		for(int i=0;i<recordCheck.size();i=i+1) {
+		String	strRecordVal = recordCheck.get(i).getText();
+		System.out.println(strRecordVal);
+		
+		if(strRecordVal.equalsIgnoreCase(recordName)) {
+			System.out.println(strRecordVal+"Record name is present");
+			
+		}else {
+			System.out.println("Record name is not present");
+		}
+		for(int j=0;j<selectRecordCheckBox.size();j++) {
+			selectRecordCheckBox.get(i).click();
+			System.out.println("Clicked on checkBox ");
+		}
+		}
+		
+	}
+}

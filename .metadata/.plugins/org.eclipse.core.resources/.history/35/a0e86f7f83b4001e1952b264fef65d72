@@ -1,0 +1,67 @@
+package pages;
+
+
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.booking.TestBase;
+
+public class createNewCustomer {
+	WebDriver driver;
+	
+	public void createNewCustomer(WebDriver driver) {
+	PageFactory.initElements(driver, this);
+	this.driver = driver;
+	}
+	
+	@FindBy(xpath = "//div[@class='customerNameDiv']//input[@placeholder='Enter Customer Name']")
+	private WebElement custName;
+	@FindBy(xpath = "//textarea[@placeholder='Enter Customer Description']")
+	private WebElement custDesc;
+	@FindBy(xpath = "(//div[@class='dropdownButton'])[15]")
+	private WebElement clickOnDrpDwn;
+	@FindBy(xpath = "//div[@class='itemRow cpItemRow ']")
+	private WebElement selectOptions;
+	
+	
+	public void enterCustName(String Customername) {
+		custName.sendKeys(Customername);
+		System.out.println("Customer name is entered as "+Customername+" successfully");
+	}
+	
+	public void customerDesc(String custDescription) {
+		
+		custDesc.sendKeys(custDescription);
+		System.out.println("Description entered as "+ custDescription);
+	}
+	
+	public void clickDrpDwn() {
+		clickOnDrpDwn.click();
+		
+	}
+	public void selectProject(String expProj) {
+		@SuppressWarnings("unchecked")
+		List<WebElement> al = (List<WebElement>)selectOptions ;
+		for(int i =0; i<al.size();i++) {
+			String projVal = al.get(i).getText();
+			if(projVal.equals(expProj)) {
+				al.get(i).click();
+				System.out.println("Project name is clicked as "+projVal);
+			}else {
+				System.out.println("Did not click on any project");
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+}

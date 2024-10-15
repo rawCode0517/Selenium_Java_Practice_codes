@@ -1,0 +1,32 @@
+package com.booking;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+public class TestBase {
+	WebDriver driver;
+
+	@BeforeClass
+	public void browserLunch() {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://online.actitime.com/xyz6/login.do");
+		 
+	}
+	@BeforeClass
+	public void edgeBrowserLaunch() {
+		driver = new EdgeDriver();
+		driver.manage().window().maximize();
+	}
+
+//	@AfterClass
+//	public void Quit() {
+		//driver.quit();
+//	}
+
+}
+        

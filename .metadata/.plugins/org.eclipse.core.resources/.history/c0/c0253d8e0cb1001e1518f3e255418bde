@@ -1,0 +1,28 @@
+package testcasesScript;
+
+import org.testng.annotations.Test;
+
+import com.booking.TestBase;
+
+import pages.Homepage;
+import pages.LoginPage;
+import pages.customersProject;
+
+
+public class TC_03_TextVal_AddWork extends TestBase{
+	@Test
+	public void textValidation() throws InterruptedException {
+		LoginPage lg = new LoginPage(driver);
+		lg.login("anshumanjenamani@gmail.com", "actitime123");
+		Homepage hp = new Homepage(driver);
+		Thread.sleep(2000);
+		hp.clickTask();
+		Thread.sleep(2000);
+		hp.clickCustomerProjectBtn();
+		customersProject cp= new customersProject(driver);
+		Thread.sleep(2000);
+		cp.validateCustomerProjects("Customers & Projects");
+		
+	}
+	
+}

@@ -1,0 +1,32 @@
+package Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class getLinkCounts {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://qaclickacademy.com/practice.php");
+		int links = driver.findElements(By.tagName("a")).size();
+		System.out.println(links);
+		
+		WebElement footerDriver = driver.findElement(By.id("gf-BIG"));//limiting webdriver scope
+		System.out.println(footerDriver.findElements(By.tagName("a")).size());
+		
+		//count of links of the first column only
+	WebElement firstColumn =	driver.findElement(By.xpath("(//div[@id='gf-BIG']//table//tbody/tr/td)[1]"));
+		
+	System.out.println(firstColumn.findElements(By.tagName("a")).size());
+	
+	
+	
+	
+	}
+	
+}

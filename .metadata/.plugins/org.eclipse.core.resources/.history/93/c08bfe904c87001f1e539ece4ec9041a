@@ -1,0 +1,28 @@
+package Selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class rahulShettyAssignment {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://qaclickacademy.com/practice.php");
+		driver.manage().window().maximize();
+	WebElement checkBox =	driver.findElement(By.xpath("//input[@id='checkBoxOption3']"));
+		checkBox.click();
+
+		//fetch value as option 3
+		String fetchedValue = driver.findElement(By.xpath("//input[@id='checkBoxOption3']")).getText();
+		System.out.println(fetchedValue);
+		
+		//Navigate to dropdown list and select the fetched value
+		driver.findElement(By.xpath("//select[@id='dropdown-class-example']/option[@value ='"+fetchedValue+"']")).click();
+		
+		
+	}
+	
+}

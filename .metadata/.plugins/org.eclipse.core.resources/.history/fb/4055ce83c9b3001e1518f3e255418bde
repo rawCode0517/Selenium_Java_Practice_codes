@@ -1,0 +1,27 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import com.booking.TestBase;
+
+public class createNewCustomer {
+	WebDriver driver;
+	
+	public void createNewCustomer(WebDriver driver) {
+	PageFactory.initElements(driver, this);
+	this.driver = driver;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,8 @@
+package Sync;
+
+public class waitProp {
+	public void explicitWait() {
+		
+	}
+
+}
